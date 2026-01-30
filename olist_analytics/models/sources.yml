@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: public
+    database: ecommerce_dw
+    schema: public
+    tables:
+      - name: fact_orders
+        columns:
+          - name: order_id
+            tests:
+              - unique
+              - not_null
+      - name: dim_customers
+      - name: dim_products
+      - name: fact_order_items
+        columns:
+          - name: price
+            tests:
+              - not_null

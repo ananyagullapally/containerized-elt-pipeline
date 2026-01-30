@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+dbt_env/
+
+# Data & Credentials
+*.csv
+*.json
+profiles.yml
+
+# Docker
+.dockerignore
+
+# OS files
+.DS_Store
