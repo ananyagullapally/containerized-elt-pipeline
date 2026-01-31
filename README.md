@@ -45,29 +45,32 @@ JOIN fact_order_items i ON p.product_id = i.product_id
 GROUP BY 1
 HAVING COUNT(i.order_id) > 100
 ORDER BY margin_ratio DESC
+```
 ---
-###Getting Started
-Prerequisites
-Docker and Docker Compose installed
+## Cloning
+Follow these instructions to replicate the environment and run the data pipeline locally.
 
-Git
+### Prerequisites
+Docker and Docker Compose installed.
 
-Execution
+### Git installed.
+
+A PostgreSQL client (optional, for manual verification).
+
+### Installation and Setup
 Clone the repository:
 
-Bash
-
-git clone [https://github.com/ananyagullapally/olist-docker-pipeline.git](https://github.com/ananyagullapally/olist-docker-pipeline.git)
+```
+git clone https://github.com/ananyagullapally/olist-docker-pipeline.git
 cd olist-docker-pipeline
+```
 Launch the stack:
 
-Bash
-
+```
 docker-compose up -d
+```
 Execute the Pipeline:
 
-Bash
-
+```
 bash run_pipeline.sh
-Access dbt Documentation:
-The documentation server runs on http://localhost:8080. (If running on a remote VM, ensure your SSH tunnel is active: ssh -L 8080:127.0.0.1:8080 ananya@your-vm-ip).
+```
