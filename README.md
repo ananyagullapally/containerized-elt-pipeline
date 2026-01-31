@@ -6,7 +6,7 @@ A production-ready ELT (Extract, Load, Transform) pipeline that orchestrates the
 * **Orchestration:** Docker and Docker Compose
 * **Storage:** PostgreSQL (OLAP)
 * **Transformation:** dbt (Data Build Tool)
-* **Scripting:** Python (ETL) and Bash (Workflow Automation)
+* **Scripting:** Python (ELT) and Bash (Workflow Automation)
 
 ---
 
@@ -14,7 +14,7 @@ A production-ready ELT (Extract, Load, Transform) pipeline that orchestrates the
 The transformation layer is built on a modular design, moving from raw source tables to optimized analytical marts. The Directed Acyclic Graph (DAG) illustrates the dependencies between dimensional models and business views.
 
 ### Lineage Graph
-![SQL_LOGIC](./lineage_diagram.png)
+![SQL_LOGIC](./assets/lineage_diagram.png)
 * **Source Layer:** Ingested raw data including dim_customers, fact_orders, dim_products, and fact_order_items.
 * **Transformation Layer:** Modular SQL logic for complex metrics such as Customer Lifetime Value (LTV) and Monthly Revenue Growth.
 * **Mart Layer:** Business-ready tables like mart_category_profit, designed for direct consumption by BI tools.
@@ -32,7 +32,7 @@ To ensure data integrity, I implemented an automated testing suite within the db
 ## Sample Compiled SQL: mart_category_profit
 This model demonstrates the logic used to calculate profitability at the category level, including shipping margins and volume filtering.
 
-![SQL_LOGIC](./mart_category-profit.png)
+![SQL_LOGIC](./assets/mart_category-profit.png)
 ```sql
 SELECT
     p.product_category_name,
