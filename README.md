@@ -1,4 +1,4 @@
-# Olist E-Commerce ELT Pipeline
+# Containerized ELT Pipeline for E-commerce Analytics
 
 A production-ready ELT (Extract, Load, Transform) pipeline that orchestrates the ingestion and transformation of [Brazilian e-commerce data](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce). This project leverages Docker for environment isolation, PostgreSQL as the data warehouse, and dbt for dimensional modeling and data quality assurance.
 
