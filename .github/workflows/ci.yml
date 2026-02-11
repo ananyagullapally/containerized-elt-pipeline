@@ -61,4 +61,5 @@ jobs:
           PROJECT_DIR=$(find . -name "dbt_project.yml" -printf '%h\n' | head -n 1)
           cd "$PROJECT_DIR"
           dbt deps
-          dbt test
+          dbt run   # This builds the tables first
+          dbt test  # This then runs the tests on those tables
