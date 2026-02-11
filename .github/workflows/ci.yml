@@ -1,49 +1,23 @@
-name: Data Pipeline CI
-
-on:
-  push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
-
-jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
-
-    services:
-      postgres:
-        image: postgres:13
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: password
-          POSTGRES_DB: olist
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.9'
-
-      - name: Install Dependencies
+- name: Create dbt Profile
         run: |
-          pip install dbt-postgres pandas sqlalchemy psycopg2-binary
+          mkdir -p ~/.dbt
+          echo "olist:
+            outputs:
+              dev:
+                type: postgres
+                host: localhost
+                user: postgres
+                password: password
+                port: 5432
+                dbname: olist
+                schema: public
+                threads: 1
+            target: dev" > ~/.dbt/profiles.yml
 
       - name: Run dbt Tests
         env:
-          DBT_USER: postgres
-          DBT_PASSWORD: password
-          DBT_DBNAME: olist
+          DBT_PROFILES_DIR: ~/.dbt
         run: |
-          # This ensures your models are valid and your data quality tests pass
+          # If your dbt files are in a subfolder, add 'cd folder_name &&' before dbt
           dbt deps
           dbt test
