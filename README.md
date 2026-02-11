@@ -65,26 +65,25 @@ ORDER BY margin_ratio DESC
 
 ## Key Business Findings
 
-![SQL_LOGIC](./assets/monthly_revenue_trend.png)
-### 1. Revenue Trends: The "Hyper-Growth" Phase
+### 1. Revenue Trends
 The **Monthly Revenue Trend** chart reveals a classic startup growth trajectory:
 - Rapid Expansion: From January 2017 to late 2017, revenue climbed from near zero to over $1,000,000 per month.
 - Volatility: There is a notable dip in early 2018 (February), followed by a swift recovery to peak levels in May 2018.
 - Data Cut-off: The sharp drop to zero in late 2018 is likely an "artifact" of the dataset ending mid-month, rather than a total business collapse.
+![SQL_LOGIC](./assets/monthly_revenue_trend.png)
 
-![SQL_LOGIC](./assets/revenue_by_city_report.png)
-### 2. Geography: The Urban Dominance
+### 2. Geography
 The **Top 10 Cities by Revenue** chart proves that market concentration is heavily skewed toward major hubs:
 - Rio de Janeiro's Lead: Rio is the clear winner, generating over $13,000 in this specific sample—nearly double the revenue of Vila Velha in 2nd place.
 - Market Concentration: Revenue drops off quickly after the top city, indicating that marketing and logistics efforts should likely remain focused on the top 3 urban centers for maximum ROI.
+![SQL_LOGIC](./assets/revenue_by_city_report.png)
 
-![SQL_LOGIC](./assets/top_customers_ltv.png)
-### 3. Customer Value: The "Power User" Segment
+### 3. Customer Value
 The **Top 10 Customers by LTV** chart highlights a massive disparity in individual customer worth:
 - The "Whale" Effect: Your #1 customer (ID ending in ...aa872) has spent over $13,000, which is nearly double the 2nd place customer.
 - LTV Stability: Most other top-tier customers fall within a tight range of $4,000 to $7,000.
 - Business Insight: This suggests that Olist has a small segment of high-value "power users" or professional buyers who represent a disproportionate share of revenue.
-
+![SQL_LOGIC](./assets/top_customers_ltv.png)
 ---
 
 ## Cloning
