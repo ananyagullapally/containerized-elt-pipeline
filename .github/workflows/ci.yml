@@ -58,5 +58,6 @@ jobs:
         env:
           DBT_PROFILES_DIR: ~/.dbt
         run: |
+          cd elt_pipeline
           dbt deps
           dbt test
