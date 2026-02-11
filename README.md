@@ -100,8 +100,8 @@ A PostgreSQL client (optional, for manual verification).
 Clone the repository:
 
 ```
-git clone https://github.com/ananyagullapally/olist-docker-pipeline.git
-cd olist-docker-pipeline
+git clone https://github.com/ananyagullapally/containerized-elt-pipeline.git
+cd containerized-elt-pipeline
 ```
 Launch the stack:
 
