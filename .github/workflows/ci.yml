@@ -61,6 +61,6 @@ jobs:
           PROJECT_DIR=$(find . -name "dbt_project.yml" -printf '%h\n' | head -n 1)
           cd "$PROJECT_DIR"
           dbt deps
-          dbt seed  # This uploads CSVs from your seeds/ folder to the DB
-          dbt run   # This builds models using that seed data
-          dbt test  # This verifies everything
+          dbt seed
+          dbt run
+          dbt test
