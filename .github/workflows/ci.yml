@@ -40,8 +40,8 @@ jobs:
 
       - name: Create dbt Profile
         run: |
-          mkdir -p ~/.dbt
-          echo "olist:
+          mkdir -p /home/runner/.dbt
+          echo "olist_analytics:
             outputs:
               dev:
                 type: postgres
@@ -52,7 +52,7 @@ jobs:
                 dbname: olist
                 schema: public
                 threads: 1
-            target: dev" > ~/.dbt/profiles.yml
+            target: dev" > /home/runner/.dbt/profiles.yml
 
       - name: Run dbt Tests
         env:
