@@ -83,7 +83,7 @@ ORDER BY margin_ratio DESC
 ---
 ## Key Business Findings
 
-[Monthly Revenue](./assets/monthly_revenue_trend.png)
+![SQL_LOGIC](./assets/monthly_revenue_trend.png)
 ### 1. Revenue is highly concentrated across product categories
 **Observation**  
 A small subset of product categories contributes a disproportionately large share of total revenue, while many categories generate minimal sales.
