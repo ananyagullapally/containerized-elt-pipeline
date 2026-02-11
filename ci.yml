@@ -1,0 +1,49 @@
+name: Data Pipeline CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:13
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: olist
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Dependencies
+        run: |
+          pip install dbt-postgres pandas sqlalchemy psycopg2-binary
+
+      - name: Run dbt Tests
+        env:
+          DBT_USER: postgres
+          DBT_PASSWORD: password
+          DBT_DBNAME: olist
+        run: |
+          # This ensures your models are valid and your data quality tests pass
+          dbt deps
+          dbt test
