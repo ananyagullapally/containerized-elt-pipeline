@@ -57,6 +57,8 @@ jobs:
       - name: Run dbt Tests
         env:
           DBT_PROFILES_DIR: ~/.dbt
+        # CHANGE 'your_folder_name' below to the name of the folder where dbt_project.yml lives!
         run: |
+          cd your_folder_name 
           dbt deps
           dbt test
