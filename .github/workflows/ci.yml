@@ -56,9 +56,8 @@ jobs:
 
       - name: Run dbt Tests
         env:
-          DBT_PROFILES_DIR: ~/.dbt
+          DBT_PROFILES_DIR: /home/runner/.dbt
         run: |
-          # This command finds where dbt_project.yml is and moves there
           PROJECT_DIR=$(find . -name "dbt_project.yml" -printf '%h\n' | head -n 1)
           cd "$PROJECT_DIR"
           dbt deps
